@@ -19,5 +19,38 @@ app.on('ready', () => { //another function for when the app is launched
     });
     mainWindow.loadURL(`file://${__dirname}/index.html`);
     mainWindow.on('closed', () => { mainWindow = null; });
+    const template = [
+        {
+            label: 'Edit',
+            submenu: [
+                {role: 'undo'},
+                {role: 'redo'},
+                {type: 'separator'},
+                {role: 'cut'},
+                {role: 'copy'},
+                {role: 'paste'},
+                {role: 'delete'},
+                {role: 'selectall'},
+            ],
+        },
+      ];
+    
+      const menu = menu.buildFromTemplate(template);
+      menu.setApplicationMenu(menu);
+    
+    mainWindow.webContents.on('context-menu', (event, params)=>{
+        const contextMenuTemplate = [
+            {role: 'cut'},
+            {role: 'copy'},
+            {role: 'paste'},
+        ];
+    
+        const contextMenu = menu.buildFromTemplate(contextMenuTemplate);
+        contextMenu.popup();
+       });
+
 });
+
+  
+
 
