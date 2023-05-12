@@ -1,8 +1,8 @@
 'use strict'; //
 
-const electron = require('electron'); //calling to our electron 'object'
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow; //working with browser window option
+const { app, BrowserWindow, Menu} = require('electron');
+const path = require('path');
+const url = require('url');
 
 let mainWindow = null; //creating variable
 
@@ -17,7 +17,39 @@ app.on('ready', () => { //another function for when the app is launched
         height: 400
 
     });
+
+
     mainWindow.loadURL(`file://${__dirname}/index.html`);
     mainWindow.on('closed', () => { mainWindow = null; });
-});
 
+    const template = [
+        {
+            label: 'Edit',
+            submenu: [
+                {role: 'undo'},
+                {role: 'redo'},
+                {type: 'separator'},
+                {role: 'cut'},
+                {role: 'copy'},
+                {role: 'paste'},
+                {role: 'delete'},
+                {role: 'selectall'},
+            ],
+        },
+      ];
+    
+      const menu = Menu.buildFromTemplate(template);
+      Menu.setApplicationMenu(menu);
+    
+      mainWindow.webContents.on('context-menu', (event, params)=>{
+        const contextMenuTemplate = [
+            {role: 'cut'},
+            {role: 'copy'},
+            {role: 'paste'},
+        ];
+    
+        const contextMenu = Menu.buildFromTemplate(contextMenuTemplate);
+        contextMenu.popup();
+       });   
+
+})
