@@ -19,7 +19,7 @@ app.on('ready', () => { //another function for when the app is launched
     });
 
 
-    mainWindow.loadURL(`file://${__dirname}/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/bootstrap/index.html`);
     mainWindow.on('closed', () => { mainWindow = null; });
 
     const template = [
