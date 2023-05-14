@@ -11,12 +11,12 @@ app.on('window-all-closed', () => { //we grab app object and create a function
 });
 
 app.on('ready', () => { //another function for when the app is launched
-    mainWindow = new BrowserWindow({
-  
-        width: 600, 
-        height: 400
-
-    });
+    mainWindow = new BrowserWindow(
+        {show:false}//this is so it maximizes before showing to the user
+    );
+    mainWindow.maximize();//here it maximizes
+    mainWindow.show();//now we can show the window
+    
 
 
     mainWindow.loadURL(`file://${__dirname}/bootstrap/index.html`);
