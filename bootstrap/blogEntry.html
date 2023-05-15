@@ -67,7 +67,7 @@
           <h1>Enter your trip</h1>
           <nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Right here</a></li>
               <li class="breadcrumb-item active" aria-current="page">Enter your trip</li>
             </ol>
           </nav>
@@ -79,13 +79,27 @@
 
 
   <!-- ================ Enter your trip section start ================= -->
-  <section class="section-margin--small section-margin">
+  <section class="mb-4">
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
-        
-      </div>      
-    </div>
 
+        <style>
+          textarea {
+          width: 100%;
+          height: 150px;
+          margin-bottom: 10px;
+          }
+          </style>
+      <div>
+        <textarea id="entry" placeholder="Write your Trip here"></textarea>
+      </div> 
+      <div class="form-group text-center text-md-right mt-3">
+        <!--Button is a WIP, its not working right now with the funciton... for whatever reason-->
+        <button onclick="saveNotes()" class="button button--active button-Enter your tripForm">Save</button>
+      </div>  
+      <div id="entries"></div>   
+    </div>
+    <script src="/app.js"></script> 
+    
     <!--
     <div class="container">
       
