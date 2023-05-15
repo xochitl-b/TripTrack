@@ -16,6 +16,7 @@ app.on('ready', () => { //another function for when the app is launched
     );
     mainWindow.maximize();//here it maximizes
     mainWindow.show();//now we can show the window
+    //Took this idea from here https://stackoverflow.com/questions/40445068/electron-take-up-100-of-screen-not-full-screen
     
 
 
