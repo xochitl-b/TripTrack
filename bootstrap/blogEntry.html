@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Enter your trip</title>
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
-
+  <script src="app.js"></script> 
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
@@ -94,11 +94,25 @@
       </div> 
       <div class="form-group text-center text-md-right mt-3">
         <!--Button is a WIP, its not working right now with the funciton... for whatever reason-->
-        <button onclick="saveNotes()" class="button button--active button-Enter your tripForm">Save</button>
+        <button onclick="addEntry()" class="button button--active button-Enter your tripForm">Save</button>
       </div>  
       <div id="entries"></div>   
     </div>
-    <script src="/app.js"></script> 
+   <!--<script>
+      function addEntry() {
+        var entryText = document.getElementById('entry').value;
+        if (entryText.trim() !== '') {
+          var entryElement = document.createElement('p');
+          entryElement.textContent = entryText;
+  
+          var entriesDiv = document.getElementById('entries');
+          entriesDiv.appendChild(entryElement);
+  
+          document.getElementById('entry').value = '';
+        }
+      }
+    </script>-->
+    
     
     <!--
     <div class="container">
@@ -277,7 +291,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </div>
   </footer>
   <!--================ End Footer Area =================-->
-
+  
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
