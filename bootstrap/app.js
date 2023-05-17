@@ -42,3 +42,13 @@ function addEntry() {
       document.getElementById('image').value = '';
     }
   }
+
+  // Function for the rating system 
+  const stars = document.querySelectorAll('.rating input');
+                
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].addEventListener('click', (event) => {
+      const rating = event.target.value;
+      console.log('Selected rating:', rating);
+    });
+  }
