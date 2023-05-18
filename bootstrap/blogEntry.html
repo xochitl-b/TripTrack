@@ -83,13 +83,23 @@
           height: 150px;
           margin-bottom: 10px;
           }
+          .images-wrapper {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 10px;
+          }
+
+        .images-wrapper img {
+        max-width: 100%;
+        height: auto;
+        }
           </style>
      
      <!-- placeholders for the user input -->
       <div id="blog">
         <input type="text" id="title" placeholder="Title" />
         <textarea id="entry" placeholder="Write your Trip here"></textarea>
-        <input type="file" id="image" accept="image/*" />
+        <input type="file" id="image" accept="image/*" multiple />
       </div> 
       
       <div class="form-group text-center text-md-right mt-3">
