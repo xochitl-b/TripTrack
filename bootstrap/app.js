@@ -4,7 +4,7 @@
 function addEntry() {
     var entryText = document.getElementById('entry').value; //get the "text" part of the entry
     var titleText = document.getElementById('title').value; //get the title
-    var imageFile = document.getElementById('image').files[0]; //get whatever image is uploaded
+    var imageFiles = document.getElementById('image').files; //get whatever image is uploaded
 
     if (entryText.trim() !== '') {
       var entryElement = document.createElement('div');
@@ -21,18 +21,27 @@ function addEntry() {
       entryTextElement.textContent = entryText;
       entryElement.appendChild(entryTextElement);
 
+      //create a div "imagesWrapper" with css style to display as 3 by 3
+      var imagesWrapper = document.createElement('div');
+      imagesWrapper.classList.add('images-wrapper');
+
       //if image is uploaded, using FileReader API, the function creates an img
-      //Will try and lookup how to manage if we want to upload more than one image    
-      if (imageFile) {
+      //loop to go over the images if more than on is uploaded
+      for (var i = 0; i < imageFiles.length; i++) {
         var imageElement = document.createElement('img');
         var reader = new FileReader();
-        reader.onload = function(e) {
-          imageElement.src = e.target.result;
-        };
-        //image source is set as image URL and appended to entry div
-        reader.readAsDataURL(imageFile); 
-        entryElement.appendChild(imageElement);
+        reader.onload = (function (img) {
+          return function (e) {
+            img.src = e.target.result;
+          };
+        })(imageElement);
+        //image source is set as image URL and appended to entry images wrapper div
+        reader.readAsDataURL(imageFiles[i]);
+        imagesWrapper.appendChild(imageElement);
       }
+      //append imageswrapper div to entry elemnt
+      entryElement.appendChild(imagesWrapper);
+     
       //Entry (title+text+image) is appended to the entries div
       var entriesDiv = document.getElementById('entries');
       entriesDiv.appendChild(entryElement);
