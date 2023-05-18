@@ -52,3 +52,28 @@ function addEntry() {
       console.log('Selected rating:', rating);
     });
   }
+
+   // Handle the login form submit event
+   mainWindow.webContents.on('did-finish-load', () => {
+    const loginForm = mainWindow.webContents.getElementById('loginForm');
+    loginForm.addEventListener('submit', event => {
+      event.preventDefault();
+
+      // Retrieve the entered username and password values
+      const username = loginForm.username.value;
+      const password = loginForm.password.value;
+    });
+    // Perform authentication logic (e.g., validate credentials against a database or API)
+    if (username === 'admin' && password === 'password') {
+      // Successful login, redirect to another page
+      mainWindow.loadURL(`file://${__dirname}/bootstrap/index.html`);
+    } else {
+      // Invalid credentials, display an error message
+      const errorElement = mainWindow.webContents.getElementById('error');
+      errorElement.textContent = 'Invalid username or password';
+    }
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });

@@ -46,8 +46,15 @@
               </li>
               -->
             </ul>
-              <p>Username</p>
           </div> 
+           <!-- Perform authentication login, throws an error message if the credential are incorrect-->
+          <form id="loginForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="button" type="submit" href="#">Login</button> 
+            <p id="error" style="color: red;"></p>
+          </div>       
+      </div>
         </div>
       </nav>
     </div>
