@@ -21,6 +21,10 @@ function addEntry() {
       entryTextElement.textContent = entryText;
       entryElement.appendChild(entryTextElement);
 
+      //create a div "imagesWrapper" with css style to display as 3 by 3
+      var imagesWrapper = document.createElement('div');
+      imagesWrapper.classList.add('images-wrapper');
+
       //if image is uploaded, using FileReader API, the function creates an img
       //loop to go over the images if more than on is uploaded
       for (var i = 0; i < imageFiles.length; i++) {
@@ -31,11 +35,12 @@ function addEntry() {
             img.src = e.target.result;
           };
         })(imageElement);
-        //image source is set as image URL and appended to entry div
+        //image source is set as image URL and appended to entry images wrapper div
         reader.readAsDataURL(imageFiles[i]);
-        entryElement.appendChild(imageElement);
+        imagesWrapper.appendChild(imageElement);
       }
-
+      //append imageswrapper div to entry elemnt
+      entryElement.appendChild(imagesWrapper);
      
       //Entry (title+text+image) is appended to the entries div
       var entriesDiv = document.getElementById('entries');
