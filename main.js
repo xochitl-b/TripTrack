@@ -44,6 +44,8 @@ app.on('ready', () => { //another function for when the app is launched
     
       mainWindow.webContents.on('context-menu', (event, params)=>{
         const contextMenuTemplate = [
+            {role: 'undo'},
+            {role: 'redo'},
             {role: 'cut'},
             {role: 'copy'},
             {role: 'paste'},
