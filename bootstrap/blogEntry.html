@@ -93,19 +93,39 @@
           max-width: 100%;
           height: auto;
           }
+          #image {
+          color: rgb(192, 192, 192); /* Change to your desired color */
+          }
+          .drop-area {
+          border: 2px dashed #ccc;
+          padding: 20px;
+          text-align: center;
+          }
 
+          .drop-area.hover {
+          border-color: #aaa;
+          background-color: #f7f7f7;
+          }
           </style>
      
      <!-- placeholders for the user input -->
       <div id="blog">
         <input clas="input" type="text" id="title" placeholder="Title" />
         <textarea id="entry" placeholder="Write your Trip here"></textarea>
-        <input type="file" id="image" accept="image/*" multiple />
+        <!--<input class="button" type="file" id="image" accept="image/*" multiple /> -->
+        <!--Drag and drop input area for the images -->
+        <div class="drop-area" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragenter="handleDragEnter(event)" ondragleave="handleDragLeave(event)">
+          <p>Drop your pics here!</p>
+          <img src="img/drag-and-drop.png" alt="drag-and-drop" width="120" />
+          <input type="file" id="image" accept="image/*" multiple style="display: none;" />
+        </div>
       </div> 
       
       <div class="form-group text-center text-md-right mt-3">
         <button onclick="addEntry()" class="button button--active button-Enter your tripForm">Save</button>
+
       </div>  
+
 
       <!--Div where the entries will go once "submitted"-->
       <div id="entries"></div>   
