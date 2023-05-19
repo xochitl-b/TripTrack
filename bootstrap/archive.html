@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Remake Barber - Archive</title>
-	<link rel="icon" href="img/Fevicon.png" type="image/png">
+  <link rel="icon" href="img/Fevicon.png" type="image/png">
 
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -13,9 +14,11 @@
   <link rel="stylesheet" href="vendors/linericon/style.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <!--================Header Menu Area =================-->
   <header class="header_area">
@@ -24,7 +27,8 @@
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
           <a class="navbar-brand logo_h" href="index.html"><img src="img/logo-mini.png" width="160" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,28 +36,18 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="blogEntry.html">Enter your trip</a></li>
-              <li class="nav-item"><a class="nav-link" href="archive.html">My Archive</a></li> 
-              <!--<li class="nav-item"><a class="nav-link" href="category.html"></a>-->
-              <!--
-              <li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu">
-                  <--<li class="nav-item"><a class="nav-link" href="blog-details.html">Blog Details</a></li>--
-                </ul>
-              </li>
-              -->
+              <li class="nav-item"><a class="nav-link" href="archive.html">My Archive</a></li>
             </ul>
-          </div> 
+          </div>
         </div>
       </nav>
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  
-  <!--================ Hero sm Banner start =================-->    
+
+  <!--================ Hero sm Banner start =================-->
   <section class="mb-30px">
     <div class="container">
       <div class="hero-banner hero-banner--sm">
@@ -69,9 +63,9 @@
       </div>
     </div>
   </section>
-  <!--================ Hero sm Banner end =================-->    
+  <!--================ Hero sm Banner end =================-->
 
-  
+
 
   <!--================ Start Blog Post Area =================-->
   <section class="blog-post-area section-margin">
@@ -82,76 +76,187 @@
             <div class="col-md-6">
               <div class="single-recent-blog-post card-view">
                 <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card1.png" alt="">
+                  <img src="https://i.pinimg.com/564x/6b/c8/5d/6bc85d65d8f37dd2b50c43ce07ec819c.jpg" alt="Northern Lights" width = "350" height = "331">
                   <ul class="thumb-info">
                 </div>
                 <div class="details mt-20">
                   <a href="blog-single.html">
                     <h3>5 days trip to Norway</h3>
                   </a>
-                  <p>I embarked on an incredible 5-day expedition to Norway to witness the awe-inspiring Northern Lights.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>I embarked on an incredible 5-day expedition to Norway to witness the awe-inspiring Northern
+                    Lights.</p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    const ratingStars = [...document.getElementsByClassName("rating__star")];
+
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="single-recent-blog-post card-view">
                 <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card2.png" alt="">
+                  <img src="https://i.pinimg.com/564x/93/ca/b9/93cab9608fc139211d4545df8f5759ed.jpg" alt="Spain" width = "350" height = "331">
                 </div>
                 <div class="details mt-20">
                   <a href="blog-single.html">
                     <h3>A motorcycle trip in Spain</h3>
                   </a>
-                  <p>An exhilarating motorcycle adventure to the picturesque beaches of Spain. Riding along scenic coastal roads, I felt the warm breeze against my face as I discovered hidden coves, enjoyed sun-soaked sands, and indulged in the vibrant Spanish culture by the shimmering Mediterranean Sea.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>An exhilarating motorcycle adventure to the picturesque beaches of Spain. Riding along scenic
+                    coastal roads, I felt the warm breeze against my face as I discovered hidden coves, enjoyed
+                    sun-soaked sands, and indulged in the vibrant Spanish culture by the shimmering Mediterranean Sea.
+                  </p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
-            <!--====delete this post=== <div class="col-md-6">
-              <div class="single-recent-blog-post card-view">
-                <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card3.png" alt="">
-                </div>
-                <div class="details mt-20">
-                  <a href="blog-single.html">
-                    <h3>Fast cars and rickety bridges as 
-                        he grand tour returns</h3>
-                  </a>
-                  <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>-->
             <div class="col-md-6">
               <div class="single-recent-blog-post card-view">
                 <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card4.png" alt="">
+                  <img src="https://i.pinimg.com/564x/be/a3/60/bea360a6203c59f14f93e47de7d26bf5.jpg" alt="London" width = "350" height = "331">
                 </div>
                 <div class="details mt-20">
                   <a href="blog-single.html">
                     <h3>London Girls Trip</h3>
                   </a>
-                  <p>Immersed in the vibrant energy of London, our girls' trip was a whirlwind of excitement. We explored iconic landmarks, indulged in fabulous shopping, savored diverse cuisines, and danced the night away in trendy clubs, creating unforgettable memories together.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>Immersed in the vibrant energy of London, our girls' trip was a whirlwind of excitement. We
+                    explored iconic landmarks, indulged in fabulous shopping, savored diverse cuisines, and danced the
+                    night away in trendy clubs, creating unforgettable memories together.</p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
-            <!--=====delet this post=== <div class="col-md-6">
-              <div class="single-recent-blog-post card-view">
-                <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card5.png" alt="">
-                </div>
-                <div class="details mt-20">
-                  <a href="blog-single.html">
-                    <h3>Fast cars and rickety bridges as 
-                        he grand tour returns</h3>
-                  </a>
-                  <p>Vel aliquam quis, nulla pede mi commodo no tristique nam hac luctus torquent velit felis lone commodo pellentesque</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                </div>
-              </div>
-            </div>-->
             <div class="col-md-6">
               <div class="single-recent-blog-post card-view">
                 <div class="thumb">
@@ -161,22 +266,114 @@
                   <a href="blog-single.html">
                     <h3>Car Trip around California </h3>
                   </a>
-                  <p>Embarking on a thrilling car journey around California, we marveled at the diverse landscapes. From cruising along the iconic Pacific Coast Highway to exploring Yosemite's majestic beauty, every moment was filled with awe and adventure, capturing the essence of this captivating state.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>Embarking on a thrilling car journey around California, we marveled at the diverse landscapes. From
+                    cruising along the iconic Pacific Coast Highway to exploring Yosemite's majestic beauty, every
+                    moment was filled with awe and adventure, capturing the essence of this captivating state.</p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="single-recent-blog-post card-view">
                 <div class="thumb">
-                  <img class="card-img rounded-0" src="img/blog/thumb/thumb-card7.png" alt="">
+                  <img src="https://i.pinimg.com/564x/ed/ab/d4/edabd48309019ac633468eacd858b39f.jpg" alt="Italy" width = "350" height = "331">
                 </div>
                 <div class="details mt-20">
                   <a href="blog-single.html">
                     <h3>Exploring Italy's culinary</h3>
                   </a>
-                  <p>In Italy, my culinary journey was a tantalizing exploration of flavors. From savoring heavenly pasta dishes in Rome to indulging in gelato in Florence, each bite was a delicious celebration of Italy's gastronomic treasures.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>In Italy, my culinary journey was a tantalizing exploration of flavors. From savoring heavenly
+                    pasta dishes in Rome to indulging in gelato in Florence, each bite was a delicious celebration of
+                    Italy's gastronomic treasures.</p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
@@ -189,97 +386,81 @@
                   <a href="blog-single.html">
                     <h3>Work Trip in France</h3>
                   </a>
-                  <p>During my work trip to the stunning coast of France, I seized the opportunity to soak up the sun and enjoy the beach. Balancing productive meetings with relaxing seaside strolls, I savored the perfect blend of professional duties and coastal bliss.</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  <p>During my work trip to the stunning coast of France, I seized the opportunity to soak up the sun
+                    and enjoy the beach. Balancing productive meetings with relaxing seaside strolls, I savored the
+                    perfect blend of professional duties and coastal bliss.</p>
+                  <a style="color: #256d85" style="font-weight: bold;" href="#">Rate this Trip</a>
+                  <div class="rating">
+                    <span class="rating__result"></span>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                    <i class="rating__star far fa-star"></i>
+                  </div>
+                  <script>
+                    function executeRating(stars) {
+                      const starClassActive = "rating__star fas fa-star";
+                      const starClassInactive = "rating__star far fa-star";
+                      const starsLength = stars.length;
+                      let i;
+                      stars.map((star) => {
+                        star.onclick = () => {
+                          i = stars.indexOf(star);
+
+                          if (star.className === starClassInactive) {
+                            for (i; i >= 0; --i) stars[i].className = starClassActive;
+                          } else {
+                            for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+                          }
+
+                          // Store the rating in localStorage
+                          localStorage.setItem("rating", i + 1);
+                        };
+                      });
+                    }
+
+                    function loadRating() {
+                      // Retrieve the rating from localStorage
+                      const storedRating = localStorage.getItem("rating");
+                      if (storedRating) {
+                        const rating = parseInt(storedRating);
+                        const activeStars = ratingStars.slice(0, rating);
+                        activeStars.forEach((star) => {
+                          star.className = "rating__star fas fa-star";
+                        });
+                      }
+                    }
+                    executeRating(ratingStars);
+                    loadRating();
+                  </script>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog2.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Woman claims husband wants to name baby girl
-                  after his ex-lover sparking.</h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog3.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                  ination reputation all time. </h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div>
-
-          <div class="single-recent-blog-post">
-            <div class="thumb">
-              <img class="img-fluid" src="img/blog/blog4.png" alt="">
-              <ul class="thumb-info">
-                <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-              </ul>
-            </div>
-            <div class="details mt-20">
-              <a href="blog-single.html">
-                <h3>Tourist deaths in Costa Rica jeopardize safe dest
-                  ination reputation all time.  </h3>
-              </a>
-              <p class="tag-list-inline">Tag: <a href="#">travel</a>, <a href="#">life style</a>, <a href="#">technology</a>, <a href="#">fashion</a></p>
-              <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-              <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-            </div>
-          </div> -->
-
-          
-
           <div class="row">
             <div class="col-lg-12">
-                <nav class="blog-pagination justify-content-center d-flex">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">
-                                    <i class="ti-angle-left"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item">
-                            <a href="#" class="page-link" aria-label="Next">
-                                <span aria-hidden="true">
-                                    <i class="ti-angle-right"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+              <nav class="blog-pagination justify-content-center d-flex">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Previous">
+                      <span aria-hidden="true">
+                        <i class="ti-angle-left"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                  <li class="page-item"><a href="#" class="page-link">2</a></li>
+                  <li class="page-item">
+                    <a href="#" class="page-link" aria-label="Next">
+                      <span aria-hidden="true">
+                        <i class="ti-angle-right"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -321,141 +502,8 @@
                   </a>
                 </li>
               </ul>
-            </div>  
-        <!-- ====first test==== <div class="col-lg-4 sidebar-widgets">
-            <div class="widget-wrap">
-              <div class="single-sidebar-widget newsletter-widget">
-                <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                <div class="form-group mt-30">
-                  <div class="col-autos">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''"
-                      onblur="this.placeholder = 'Enter email'">
-                  </div>
-                </div>
-                <button class="bbtns d-block mt-20 w-100">Subcribe</button>
-              </div>
-
-
-              <div class="single-sidebar-widget post-category-widget">
-                <h4 class="single-sidebar-widget__title">Catgory</h4>
-                <ul class="cat-list mt-20">
-                  <li>
-                    <a href="#" class="d-flex justify-content-between">
-                      <p>Technology</p>
-                      <p>(03)</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="d-flex justify-content-between">
-                      <p>Software</p>
-                      <p>(09)</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="d-flex justify-content-between">
-                      <p>Lifestyle</p>
-                      <p>(12)</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="d-flex justify-content-between">
-                      <p>Shopping</p>
-                      <p>(02)</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="d-flex justify-content-between">
-                      <p>Food</p>
-                      <p>(10)</p>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="single-sidebar-widget popular-post-widget">
-                <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                <div class="popular-post-list">
-                  <div class="single-post-list">
-                    <div class="thumb">
-                      <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
-                      <ul class="thumb-info">
-                        <li><a href="#">Adam Colinge</a></li>
-                        <li><a href="#">Dec 15</a></li>
-                      </ul>
-                    </div>
-                    <div class="details mt-20">
-                      <a href="blog-single.html">
-                        <h6>Accused of assaulting flight attendant miktake alaways</h6>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="single-post-list">
-                    <div class="thumb">
-                      <img class="card-img rounded-0" src="img/blog/thumb/thumb2.png" alt="">
-                      <ul class="thumb-info">
-                        <li><a href="#">Adam Colinge</a></li>
-                        <li><a href="#">Dec 15</a></li>
-                      </ul>
-                    </div>
-                    <div class="details mt-20">
-                      <a href="blog-single.html">
-                        <h6>Tennessee outback steakhouse the
-                          worker diagnosed</h6>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="single-post-list">
-                    <div class="thumb">
-                      <img class="card-img rounded-0" src="img/blog/thumb/thumb3.png" alt="">
-                      <ul class="thumb-info">
-                        <li><a href="#">Adam Colinge</a></li>
-                        <li><a href="#">Dec 15</a></li>
-                      </ul>
-                    </div>
-                    <div class="details mt-20">
-                      <a href="blog-single.html">
-                        <h6>Tennessee outback steakhouse the
-                          worker diagnosed</h6>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-                <div class="single-sidebar-widget tag_cloud_widget">
-                  <h4 class="single-sidebar-widget__title">Popular Post</h4>
-                  <ul class="list">
-                    <li>
-                        <a href="#">project</a>
-                    </li>
-                    <li>
-                        <a href="#">love</a>
-                    </li>
-                    <li>
-                        <a href="#">technology</a>
-                    </li>
-                    <li>
-                        <a href="#">travel</a>
-                    </li>
-                    <li>
-                        <a href="#">software</a>
-                    </li>
-                    <li>
-                        <a href="#">life style</a>
-                    </li>
-                    <li>
-                        <a href="#">design</a>
-                    </li>
-                    <li>
-                        <a href="#">illustration</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
-          </div>-->
-        <!-- End Blog Post Siddebar -->
-      </div>
+          </div>
   </section>
   <!--================ End Blog Post Area =================-->
 
@@ -465,16 +513,25 @@
     <div class="container">
       <div class="row">
         <div class="col-autos">
-            <h6>About Us</h6>
-            <p>
-              Trip Track is a travel journey app designed to help you track, document, and share your travel experiences. With an interactive map, note-taking features, and the ability to add photos and tags, you can easily record every moment of your trips. Connect with a community of fellow travelers, exchange tips, and discover new destinations. Your privacy and data security are ensured, and the app serves as your virtual travel journal and digital scrapbook. Download Trip Track today to embark on unforgettable adventures and create lasting memories.
-            </p>
+          <h6>About Us</h6>
+          <p>
+            Trip Track is a travel journey app designed to help you track, document, and share your travel experiences.
+            With an interactive map, note-taking features, and the ability to add photos and tags, you can easily record
+            every moment of your trips. Connect with a community of fellow travelers, exchange tips, and discover new
+            destinations. Your privacy and data security are ensured, and the app serves as your virtual travel journal
+            and digital scrapbook. Download Trip Track today to embark on unforgettable adventures and create lasting
+            memories.
+          </p>
         </div>
       </div>
       <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
+            class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
       </div>
     </div>
   </footer>
@@ -487,4 +544,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="js/mail-script.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
