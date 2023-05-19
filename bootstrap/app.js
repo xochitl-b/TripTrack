@@ -1,6 +1,39 @@
 'use strict';
 //Keep this file here, the script was not working unless it was on the same path as the html files
 
+
+  //------ Drag and drop ------
+  //When file dropped to drop area "images". Handle drag leave function removes hover effect
+  function handleDrop(event) {
+    event.preventDefault();
+    var files = event.dataTransfer.files;
+    document.getElementById('image').files = files;
+    handleDragLeave(event);
+  }
+ //stop default behaviour to allow dropping files onto the area
+  function handleDragOver(event) {
+    event.preventDefault();
+  }
+ //when file is dragged on drop area indicates hover effect
+  function handleDragEnter(event) {
+    event.preventDefault();
+    var dropArea = event.target;
+    dropArea.classList.add('hover');
+  }
+//when a file is dragged out of the drop-area. 
+//Stops the default behavior and removes the hover class 
+//from the drop-area to remove the hover effect
+  function handleDragLeave(event) {
+    event.preventDefault();
+    var dropArea = event.target;
+    dropArea.classList.remove('hover');
+  }
+  //if using the "select files"
+  function handleFileSelect(event) {
+    var files = event.target.files;
+    // You can access the selected files here and perform any necessary processing
+  }
+
 function addEntry() {
   var entryText = document.getElementById('entry').value; //get the "text" part of the entry
   var titleText = document.getElementById('title').value; //get the title
