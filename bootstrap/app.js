@@ -116,15 +116,6 @@ function loadEntriesFromLocalStorage() {
 }
 
 
-// Function for the rating system 
-const stars = document.querySelectorAll('.rating input');
-
-for (let i = 0; i < stars.length; i++) {
-  stars[i].addEventListener('click', (event) => {
-    const rating = event.target.value;
-    console.log('Selected rating:', rating);
-  });
-}
 
 // Handle the login form submit event
 mainWindow.webContents.on('did-finish-load', () => {
