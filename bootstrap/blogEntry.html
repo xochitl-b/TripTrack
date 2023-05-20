@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Enter your trip</title>
   <link rel="icon" href="img/Fevicon.png" type="image/png">
-  <script src="app.js"></script>
+  
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
@@ -112,7 +112,7 @@
 
       <!-- placeholders for the user input -->
       <div id="blog">
-        <input clas="input" type="text" id="title" placeholder="Title" />
+        <input class="input" type="text" id="title" placeholder="Title" />
         <textarea id="entry" placeholder="Write your Trip here"></textarea>
         <!--<input class="button" type="file" id="image" accept="image/*" multiple /> -->
         <!--Drag and drop input area for the images -->
@@ -126,9 +126,9 @@
 
       <div class="form-group text-center text-md-right mt-3">
         <button onclick="addEntry()" class="button button--active button-Enter your tripForm">Save</button>
-
+        <button id="deleteButton" class="button button--active button-Enter">Clear Archive</button>
       </div>
-
+      
 
       <!--Div where the entries go once "submitted"-->
       <div id="entries"></div>
@@ -168,7 +168,7 @@
   </footer>
 
   <!--================ End Footer Area =================-->
-
+  <script src="app.js"></script>
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
