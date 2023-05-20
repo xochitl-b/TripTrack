@@ -4,7 +4,12 @@
 // load past content stored locally upon start
 window.addEventListener('DOMContentLoaded', function () {
   loadEntriesFromLocalStorage();
+
+  // Event listener to the delete button
+  var deleteButton = document.getElementById('deleteButton');
+  deleteButton.addEventListener('click', deleteAllEntries);
 });
+
 
 //------ Drag and drop ------
 //When file dropped to drop area "images". Handle drag leave function removes hover effect
@@ -102,6 +107,13 @@ function addEntry() {
   }
 }
 
+function deleteAllEntries() {
+  var entriesDiv = document.getElementById('entries');
+  entriesDiv.innerHTML = ''; // Clear the entries div
+
+  // Clear local storage
+  localStorage.removeItem('entries');
+}
 
 function loadEntriesFromLocalStorage() {
   // Get existing entries from local storage
