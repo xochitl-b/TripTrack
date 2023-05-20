@@ -1,7 +1,7 @@
 'use strict';
-//Keep this file here, the script was not working unless it was on the same path as the html files
+// Keep this file here, the script was not working unless it was on the same path as the html files
 
-//load past content stored locally upon start
+// load past content stored locally upon start
 window.addEventListener('DOMContentLoaded', function () {
   loadEntriesFromLocalStorage();
 });
@@ -36,6 +36,16 @@ function handleFileSelect(event) {
   var files = event.target.files;
   // You can access the selected files here and perform any necessary processing
 }
+
+    //function to save entry to local storage
+    function saveEntryToLocalStorage(entryElement) {
+      // Get existing entries from local storage
+      var entries = JSON.parse(localStorage.getItem('entries')) || [];
+      // Add the new entry to the entries array
+      entries.push(entryElement.innerHTML);
+      // Save the updated entries array back to local storage
+      localStorage.setItem('entries', JSON.stringify(entries));
+    }
 
 function addEntry() {
   var entryText = document.getElementById('entry').value; //get the "text" part of the entry
@@ -86,20 +96,12 @@ function addEntry() {
     document.getElementById('title').value = '';
     document.getElementById('image').value = '';
 
+
     saveEntryToLocalStorage(entryElement);
 
   }
 }
 
-//function to save entry to local storage
-function saveEntryToLocalStorage(entryElement) {
-  // Get existing entries from local storage
-  var entries = JSON.parse(localStorage.getItem('entries')) || [];
-  // Add the new entry to the entries array
-  entries.push(entryElement.innerHTML);
-  // Save the updated entries array back to local storage
-  localStorage.setItem('entries', JSON.stringify(entries));
-}
 
 function loadEntriesFromLocalStorage() {
   // Get existing entries from local storage
@@ -113,7 +115,8 @@ function loadEntriesFromLocalStorage() {
     entryElement.innerHTML = entries[i];
     entriesDiv.appendChild(entryElement);
   }
-}
+};
+
 
 
 // Function for the rating system 
