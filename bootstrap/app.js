@@ -130,8 +130,7 @@ function loadEntriesFromLocalStorage() {
 };
 
 
-//
-
+// Login form submission
 document.getElementById('loginForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent form submission
 
@@ -148,8 +147,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
   }
 });
 
+// Register button click
 document.getElementById('registerButton').addEventListener('click', function() {
+  // Open the registration popup window
   var registerWindow = window.open('', 'Register', 'width=400,height=300');
+  
+  // Write the registration form HTML to the popup window
   registerWindow.document.write(`
     <!DOCTYPE html>
     <html>
@@ -175,6 +178,7 @@ document.getElementById('registerButton').addEventListener('click', function() {
 
       <script src="script.js"></script>
       <script>
+        // Register form submission within the popup window
         document.getElementById('registerForm').addEventListener('submit', function(event) {
           event.preventDefault(); // Prevent form submission
 
@@ -201,9 +205,4 @@ document.getElementById('registerButton').addEventListener('click', function() {
     </body>
     </html>
   `);
-});
-
-
-mainWindow.on('closed', () => {
-  mainWindow = null;
 });
