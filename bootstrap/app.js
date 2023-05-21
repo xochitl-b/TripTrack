@@ -130,29 +130,79 @@ function loadEntriesFromLocalStorage() {
 };
 
 
+// Login form submission
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
 
+  var username = document.getElementById('loginUsername').value;
+  var password = document.getElementById('loginPassword').value;
 
-// Handle the login form submit event
-mainWindow.webContents.on('did-finish-load', () => {
-  const loginForm = mainWindow.webContents.getElementById('loginForm');
-  loginForm.addEventListener('submit', event => {
-    event.preventDefault();
+  var storedUser = JSON.parse(localStorage.getItem(username));
 
-    // Retrieve the entered username and password values
-    const username = loginForm.username.value;
-    const password = loginForm.password.value;
-  });
-  // Perform authentication logic (e.g., validate credentials against a database or API)
-  if (username === 'admin' && password === 'password') {
-    // Successful login, redirect to another page
-    mainWindow.loadURL(`file://${__dirname}/bootstrap/index.html`);
+  if (storedUser && storedUser.password === password) {
+    alert('Login successful!');
+    // Perform further actions like redirecting to a dashboard page
   } else {
-    // Invalid credentials, display an error message
-    const errorElement = mainWindow.webContents.getElementById('error');
-    errorElement.textContent = 'Invalid username or password';
+    alert('Invalid username or password!');
   }
 });
 
-mainWindow.on('closed', () => {
-  mainWindow = null;
+// Register button click
+document.getElementById('registerButton').addEventListener('click', function() {
+  // Open the registration popup window
+  var registerWindow = window.open('', 'Register', 'width=400,height=300');
+  
+  // Write the registration form HTML to the popup window
+  registerWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Registration</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <div class="container">
+        <form id="registerForm">
+          <h2>Register</h2>
+          <div>
+            <label for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" required>
+          </div>
+          <div>
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+
+      <script src="script.js"></script>
+      <script>
+        // Register form submission within the popup window
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+
+          var username = document.getElementById('registerUsername').value;
+          var password = document.getElementById('registerPassword').value;
+
+          // Check if the username is already taken
+          if (localStorage.getItem(username)) {
+            alert('Username already exists. Please choose a different username.');
+            return;
+          }
+
+          // Store the user information in local storage
+          var user = { username: username, password: password };
+          localStorage.setItem(username, JSON.stringify(user));
+
+          alert('Registration successful!');
+          // Perform further actions like redirecting to a login page
+
+          // Close the registration popup window
+          window.close();
+        });
+      </script>
+    </body>
+    </html>
+  `);
 });

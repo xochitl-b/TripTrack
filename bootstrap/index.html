@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TripTrack - Home</title>
-	<link rel="icon" href="img/Fevicon.png" type="image/png">
+  <link rel="icon" href="img/Fevicon.png" type="image/png">
 
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -16,6 +17,7 @@
 
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <!--================Header Menu Area =================-->
   <header class="header_area">
@@ -24,7 +26,8 @@
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
           <a class="navbar-brand logo_h" href="index.html"><img src="img/logo-mini.png" width="160" alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,9 +35,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-center">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="blogEntry.html">Enter your trip</a></li>
-              <li class="nav-item"><a class="nav-link" href="archive.html">My Archive</a></li> 
+              <li class="nav-item"><a class="nav-link" href="archive.html">My Archive</a></li>
               <!--<li class="nav-item"><a class="nav-link" href="category.html"></a>-->
               <!--
               <li class="nav-item submenu dropdown">
@@ -46,23 +49,50 @@
               </li>
               -->
             </ul>
-          </div> 
-           <!-- Perform authentication login, throws an error message if the credential are incorrect-->
-          <form id="loginForm">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button class="button" type="submit" href="#">Login</button> 
-            <p id="error" style="color: red;"></p>
-          </div>       
-      </div>
+          </div>
+          <!-- Perform authentication login, throws an error message if the credential are incorrect-->
+          <div class="container2">
+            <form id="loginForm">
+              <h2>Login</h2>
+              <div>
+                <label for="loginUsername">Username</label>
+                <input type="text" id="loginUsername" required>
+              </div>
+              <div>
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+              </div>
+              <button type="submit" class="button">Login<i class="ti-arrow-right"></i></button>
+              <button id="registerButton" class="button">Register<i class="ti-arrow-right"></i></button>
+            </form>
+            <style>
+              .container2 {
+                display: flex;
+                margin-right: 50px, 25px, 50px, 25px;
+                border: 1px solid #E3D8BD;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 10px 24px;
+                background-color: #E3D8BD;
+                color: #E9765F;
+                transition: all .4s ease;
+                padding-left: 15px;
+                padding-right: 15px
+              }
+            </style>
+
+          </div>
         </div>
-      </nav>
+    </div>
+    </div>
+    </nav>
     </div>
   </header>
   <!--================Header Menu Area =================-->
-  
+
   <main class="site-main">
-    <!--================Hero Banner start =================-->  
+    <!--================Hero Banner start =================-->
     <style>
         .enterTripButton{
           background-color: #e3d8bd;
@@ -77,14 +107,14 @@
           <div class="hero-banner__content">
             <h3>Go on adventures</h3>
             <h1>Create Memories</h1>
-            <a class="button enterTripButton" href="blogEntry.html">Track your trip!<i class="ti-arrow-right"></i></a> 
+            <a class="button enterTripButton" href="blogEntry.html">Track your trip!<i class="ti-arrow-right"></i></a>
           </div>
         </div>
       </div>
     </section>
-    <!--================Hero Banner end =================-->  
+    <!--================Hero Banner end =================-->
 
-    <!--================ Blog slider start =================-->  
+    <!--================ Blog slider start =================-->
     <section>
       <div class="container">
         <div class="owl-carousel owl-theme blog-slider">
@@ -144,14 +174,15 @@
             </div>
             <div class="blog__slide__content">
               <a class="blog__slide__label" href="#">Route 66</a>
-              <h3><a href="#">U.S. Route 66 or U.S. Highway 66 was one of the original highways in the United States </a></h3>
+              <h3><a href="#">U.S. Route 66 or U.S. Highway 66 was one of the original highways in the United States
+                </a></h3>
               <p>3 years ago</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!--================ Blog slider end =================-->  
+    <!--================ Blog slider end =================-->
 
     <!--================ Start Blog Post Area =================-->
     <section class="blog-post-area section-margin mt-4">
@@ -166,8 +197,11 @@
                 <a href="blog-single.html">
                   <h3>A scape to Wicklow mountains exploring the beautiful landscapes </h3>
                 </a>
-                <p class="tag-list-inline">Tag: <a href="#">Hiking</a>, <a href="#">Nature</a>, <a href="#">Photograpy</a>, <a href="#">Autumn</a></p>
-                <p>Glendalough is famed for its stunning landscape, monastic ruins, and great hikes. It's a gateway to the Wicklow Mountains National Park, one of the most beautiful areas in entire Ireland. Quite frankly, we heard only superlatives about this destination before our Ireland road trip.</p>
+                <p class="tag-list-inline">Tag: <a href="#">Hiking</a>, <a href="#">Nature</a>, <a
+                    href="#">Photograpy</a>, <a href="#">Autumn</a></p>
+                <p>Glendalough is famed for its stunning landscape, monastic ruins, and great hikes. It's a gateway to
+                  the Wicklow Mountains National Park, one of the most beautiful areas in entire Ireland. Quite frankly,
+                  we heard only superlatives about this destination before our Ireland road trip.</p>
                 <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
               </div>
             </div>
@@ -233,7 +267,7 @@
               </div>
             </div>
             -->
-            
+
             <!-- Button for more than one page
             <div class="row">
               <div class="col-lg-12">
@@ -263,10 +297,10 @@
           </div>
 
           <!-- Start Blog Post Siddebar -->
-          
+
           <div class="col-lg-4 sidebar-widgets">
-              <div class="widget-wrap">
-                <!--
+            <div class="widget-wrap">
+              <!--
                 <div class="single-sidebar-widget newsletter-widget">
                   <h4 class="single-sidebar-widget__title">Newsletter</h4>
                   <div class="form-group mt-30">
@@ -280,43 +314,43 @@
                 -->
 
 
-                <div class="single-sidebar-widget post-category-widget">
-                  <h4 class="single-sidebar-widget__title">Tags</h4>
-                  <ul class="cat-list mt-20">
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Trips</p>
-                        <p>(03)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Nature</p>
-                        <p>(09)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Lifestyle</p>
-                        <p>(12)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Beach</p>
-                        <p>(02)</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="d-flex justify-content-between">
-                        <p>Food</p>
-                        <p>(10)</p>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                
-                <!--
+              <div class="single-sidebar-widget post-category-widget">
+                <h4 class="single-sidebar-widget__title">Tags</h4>
+                <ul class="cat-list mt-20">
+                  <li>
+                    <a href="#" class="d-flex justify-content-between">
+                      <p>Trips</p>
+                      <p>(03)</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex justify-content-between">
+                      <p>Nature</p>
+                      <p>(09)</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex justify-content-between">
+                      <p>Lifestyle</p>
+                      <p>(12)</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex justify-content-between">
+                      <p>Beach</p>
+                      <p>(02)</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="d-flex justify-content-between">
+                      <p>Food</p>
+                      <p>(10)</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!--
                 <div class="single-sidebar-widget popular-post-widget">
                   <h4 class="single-sidebar-widget__title">Popular Post</h4>
                   <div class="popular-post-list">
@@ -397,12 +431,12 @@
                     </ul>
                   </div>
                   -->
-                
-                </div>
-              </div>
+
             </div>
-          <!-- End Blog Post Siddebar -->
+          </div>
         </div>
+        <!-- End Blog Post Siddebar -->
+      </div>
     </section>
     <!--================ End Blog Post Area =================-->
   </main>
@@ -413,10 +447,15 @@
     <div class="container">
       <div class="row">
         <div class="col-autos">
-            <h6>About Us</h6>
-            <p>
-              Trip Track is a travel journey app designed to help you track, document, and share your travel experiences. With an interactive map, note-taking features, and the ability to add photos and tags, you can easily record every moment of your trips. Connect with a community of fellow travelers, exchange tips, and discover new destinations. Your privacy and data security are ensured, and the app serves as your virtual travel journal and digital scrapbook. Download Trip Track today to embark on unforgettable adventures and create lasting memories.
-            </p>
+          <h6>About Us</h6>
+          <p>
+            Trip Track is a travel journey app designed to help you track, document, and share your travel experiences.
+            With an interactive map, note-taking features, and the ability to add photos and tags, you can easily record
+            every moment of your trips. Connect with a community of fellow travelers, exchange tips, and discover new
+            destinations. Your privacy and data security are ensured, and the app serves as your virtual travel journal
+            and digital scrapbook. Download Trip Track today to embark on unforgettable adventures and create lasting
+            memories.
+          </p>
         </div>
         <!--
         <div class="col-lg-4  col-md-6 col-sm-6">
@@ -488,9 +527,13 @@
 
       </div>
       <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        <p class="footer-text m-0">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i
+            class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
       </div>
     </div>
   </footer>
@@ -502,5 +545,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="js/jquery.ajaxchimp.min.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/main.js"></script>
+  <script src="/main.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
