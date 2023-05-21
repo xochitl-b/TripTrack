@@ -2668,3 +2668,69 @@ strong {
   color: #7ea8c4;
 }
 
+textarea {
+  width: 100%;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+/* .images-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.images-wrapper img {
+  max-width: 100%;
+  height: auto;
+} */
+.blog-entry {
+    margin-bottom: 10em;
+    padding: 2em;
+}
+.blog-entry button {
+  display: block;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 24px;
+  color: #f9f9ff;
+  transition: all .4s ease;
+  margin: 1em;
+  margin-left: 5px;
+  background-color: #E9765F;
+  border-color: #E9765F;
+}
+.blog-entry button:hover {
+  background-color: #256D85;
+  border-color: #256D85;
+  color: #E9765F
+}
+.blog-entry img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#image {
+  color: rgb(192, 192, 192);
+  /* Change to your desired color */
+}
+
+.drop-area {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.drop-area.hover {
+  border-color: #aaa;
+  background-color: #f7f7f7;
+}
+
+
