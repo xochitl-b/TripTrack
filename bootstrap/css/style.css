@@ -2662,3 +2662,7 @@ a {
   cursor: pointer;
   color: #dabd18b2;
 }
+
+strong {
+  color: #7ea8c4;
+}
