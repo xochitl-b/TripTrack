@@ -51,7 +51,7 @@
             </ul>
           </div>
           <!-- Perform authentication login, throws an error message if the credential are incorrect-->
-          <div class="button">
+          <div class="container2">
             <form id="loginForm">
               <h2>Login</h2>
               <div>
@@ -62,10 +62,26 @@
                 <label for="loginPassword">Password</label>
                 <input type="password" id="loginPassword" required>
               </div>
-              <button type="submit">Login<i class="ti-arrow-right"></i></button>
+              <button type="submit" class="button">Login<i class="ti-arrow-right"></i></button>
+              <button id="registerButton" class="button">Register<i class="ti-arrow-right"></i></button>
             </form>
+            <style>
+              .container2 {
+                display: flex;
+                margin-right: 50px, 25px, 50px, 25px;
+                border: 1px solid #E3D8BD;
+                text-transform: uppercase;
+                font-size: 13px;
+                font-weight: 500;
+                padding: 10px 24px;
+                background-color: #E3D8BD;
+                color: #E9765F;
+                transition: all .4s ease;
+                padding-left: 15px;
+                padding-right: 15px
+              }
+            </style>
 
-            <button id="registerButton">Register<i class="ti-arrow-right"></i></button>
           </div>
         </div>
     </div>
