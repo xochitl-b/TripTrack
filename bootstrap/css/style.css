@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
-@import url("https://fonts.googleapis.com/css?family=Lora:400,700");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 
 body {
   color: #797979;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.625
 }
@@ -33,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lora", serif;
+  font-family: "Nunito", serif;
   color: #E9765F;
   line-height: 1.333
 }
@@ -168,8 +168,8 @@ a {
 }
 
 .header_area .navbar .nav .nav-item .nav-link {
-  font-family: "Lora", serif;
-  color: #3a414e;
+  font-family: "Roboto", serif;
+  color: #256D85;
   font-size: 15px;
   text-transform: capitalize;
   font-weight: 700;
@@ -788,7 +788,7 @@ a {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(1, 3, 15, 0.2);
+  background: rgba(1, 3, 15, 0.0);
   z-index: -1
 }
 
@@ -918,7 +918,7 @@ a {
   }
 
   .blog-slider .blog-slider__leftArrow:hover::after {
-    background: #256D85
+    background: #a3d4b7
   }
 }
 
@@ -961,7 +961,7 @@ a {
   }
 
   .blog-slider .blog-slider__rightArrow:hover::after {
-    background: #256D85
+    background: #a3d4b7
   }
 }
 
@@ -1085,7 +1085,7 @@ a {
 
 .single-recent-blog-post .details .tag-list-inline {
   color: #555555;
-  font-family: "Lora", serif
+  font-family: "Nunito", serif
 }
 
 .single-recent-blog-post .details .tag-list-inline a {
@@ -1366,7 +1366,7 @@ a {
   display: block;
   width: 20%;
   height: 4px;
-  background: #256D85;
+  background: #a3d4b7;
   position: absolute;
   bottom: 4px;
   z-index: -1
@@ -2369,13 +2369,14 @@ a {
 
 .button {
   display: inline-block;
-  border: 1px solid #E3D8BD;
+  border: 1px solid #7EA8C4;
+  border-radius: 6px;
   text-transform: uppercase;
   font-size: 13px;
   font-weight: 500;
   padding: 10px 24px;
-  background-color: #E3D8BD;
-  color: #E9765F;
+  background-color: #7EA8C4;
+  color: #f9f9ff;
   transition: all .4s ease
 }
 
